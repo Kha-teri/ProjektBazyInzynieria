@@ -1,0 +1,24 @@
+:root {
+    --bg-main: #05070A;
+    --card: #0F172A;
+    --card-rgb: 15, 23, 42;
+    --border: rgba(148, 163, 184, 0.1);
+
+    --accent: #6366F1;
+    --accent-rgb: 99, 102, 241;
+    --glow: #10B981;
+    --glow-rgb: 16, 185, 129;
+    --text-main: #F8FAFC;
+    --text-secondary: #94A3B8;
+}
+
+$bg-main: var(--bg-main);
+$card: var(--card);
+$card-rgb: var(--card-rgb);
+$accent: var(--accent);
+$accent-rgb: var(--accent-rgb);
+$glow: var(--glow);
+$glow-rgb: var(--glow-rgb);
+$text-main: var(--text-main);
+$text-secondary: var(--text-secondary);
+$border: var(--border);
