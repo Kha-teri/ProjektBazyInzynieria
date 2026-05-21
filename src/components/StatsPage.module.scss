@@ -1,0 +1,282 @@
+@use '../scss/colors.scss' as *;
+@use '../scss/fonts.scss' as *;
+
+.page { max-width: 900px; }
+
+.header {
+  margin-bottom: 1.75rem;
+}
+
+.title {
+  font-family: $font-header;
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: $text-main;
+  margin-bottom: 0.25rem;
+}
+
+.subtitle {
+  font-family: $font-body;
+  font-size: 0.875rem;
+  color: $text-secondary;
+}
+
+.sessionControl {
+  background: $card;
+  border: 1px solid $border;
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.activeSession {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.activeDot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: $glow;
+  animation: pulse 1.5s ease-in-out infinite;
+  flex-shrink: 0;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(var(--glow-rgb), 0.4); }
+  50% { opacity: 0.7; box-shadow: 0 0 0 6px rgba(var(--glow-rgb), 0); }
+}
+
+.sessionInfo { flex: 1; }
+
+.sessionLabel {
+  font-family: $font-body;
+  font-size: 0.875rem;
+  color: $text-secondary;
+  margin-bottom: 0.25rem;
+}
+
+.sessionTimer {
+  font-family: $font-header;
+  font-size: 2rem;
+  font-weight: 800;
+  color: $glow;
+  letter-spacing: 0.05em;
+}
+
+.stopBtn {
+  padding: 0.625rem 1.25rem;
+  background: rgba(239, 68, 68, 0.15);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  border-radius: 8px;
+  color: #ef4444;
+  font-family: $font-body;
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s;
+  &:hover { background: rgba(239, 68, 68, 0.25); }
+}
+
+.startWrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.startTitle {
+  font-family: $font-header;
+  font-size: 1rem;
+  font-weight: 700;
+  color: $text-main;
+  margin-bottom: 0.25rem;
+}
+
+.startSub {
+  font-family: $font-body;
+  font-size: 0.8rem;
+  color: $text-secondary;
+}
+
+.startBtn {
+  padding: 0.7rem 1.75rem;
+  background: $accent;
+  border: none;
+  border-radius: 8px;
+  color: #fff;
+  font-family: $font-body;
+  font-size: 0.925rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.15s;
+  white-space: nowrap;
+  &:hover { opacity: 0.9; }
+}
+
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.statCard {
+  background: $card;
+  border: 1px solid $border;
+  border-radius: 12px;
+  padding: 1.25rem 1rem;
+  text-align: center;
+}
+
+.statValue {
+  font-family: $font-header;
+  font-size: 1.625rem;
+  font-weight: 800;
+  margin-bottom: 0.25rem;
+}
+
+.statLabel {
+  font-family: $font-body;
+  font-size: 0.72rem;
+  color: $text-secondary;
+  line-height: 1.3;
+}
+
+.progressSection {
+  background: $card;
+  border: 1px solid $border;
+  border-radius: 12px;
+  padding: 1.25rem;
+  margin-bottom: 1.5rem;
+}
+
+.progressHeader {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.625rem;
+}
+
+.progressLabel {
+  font-family: $font-body;
+  font-size: 0.875rem;
+  color: $text-main;
+  font-weight: 600;
+}
+
+.progressPct {
+  font-family: $font-body;
+  font-size: 0.875rem;
+  color: $glow;
+  font-weight: 700;
+}
+
+.progressTrack {
+  height: 8px;
+  background: $border;
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: 0.5rem;
+}
+
+.progressFill {
+  height: 100%;
+  background: linear-gradient(90deg, $accent, $glow);
+  border-radius: 4px;
+  transition: width 0.5s ease;
+}
+
+.progressInfo {
+  font-family: $font-body;
+  font-size: 0.75rem;
+  color: $text-secondary;
+}
+
+.sessionsSection {
+  background: $card;
+  border: 1px solid $border;
+  border-radius: 12px;
+  padding: 1.25rem;
+}
+
+.sectionTitle {
+  font-family: $font-header;
+  font-size: 1rem;
+  font-weight: 700;
+  color: $text-main;
+  margin-bottom: 1rem;
+}
+
+.empty {
+  color: $text-secondary;
+  font-family: $font-body;
+  font-size: 0.875rem;
+  text-align: center;
+  padding: 2rem 0;
+}
+
+.sessionTable {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.tableHeader {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 80px 100px;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid $border;
+  margin-bottom: 0.25rem;
+
+  span {
+    font-family: $font-body;
+    font-size: 0.72rem;
+    font-weight: 600;
+    color: $text-secondary;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+
+  @media (max-width: 600px) {
+    display: none;
+  }
+}
+
+.tableRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 80px 100px;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid $border;
+  align-items: center;
+
+  &:last-child { border-bottom: none; }
+
+  span {
+    font-family: $font-body;
+    font-size: 0.85rem;
+    color: $text-main;
+  }
+
+  @media (max-width: 600px) {
+    grid-template-columns: 1fr 1fr;
+    gap: 0.25rem;
+  }
+}
+
+.pointsCol { color: $glow !important; font-weight: 600 !important; }
+
+.statusDone {
+  color: $glow !important;
+  font-size: 0.75rem !important;
+  font-weight: 600 !important;
+}
+
+.statusActive {
+  color: $glow !important;
+  font-size: 0.75rem !important;
+  font-weight: 600 !important;
+  animation: pulse 1.5s ease-in-out infinite;
+}

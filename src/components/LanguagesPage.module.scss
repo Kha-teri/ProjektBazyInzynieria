@@ -1,0 +1,443 @@
+@use '../scss/colors.scss' as *;
+@use '../scss/fonts.scss' as *;
+
+.page { max-width: 900px; }
+
+.header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 1.75rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.setHeader {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.title {
+  font-family: $font-header;
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: $text-main;
+  margin-bottom: 0.25rem;
+}
+
+.subtitle {
+  font-family: $font-body;
+  font-size: 0.875rem;
+  color: $text-secondary;
+}
+
+.backBtn {
+  background: none;
+  border: 1px solid $border;
+  border-radius: 8px;
+  padding: 0.4rem 0.875rem;
+  color: $text-secondary;
+  font-family: $font-body;
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: border-color 0.15s, color 0.15s;
+  white-space: nowrap;
+  &:hover { border-color: $accent; color: $text-main; }
+}
+
+.addBtn, .studyBtn {
+  padding: 0.6rem 1.25rem;
+  background: $accent;
+  border: none;
+  border-radius: 8px;
+  color: #fff;
+  font-family: $font-body;
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.15s;
+  white-space: nowrap;
+  &:hover { opacity: 0.9; }
+}
+
+.studyBtn {
+  background: $glow;
+}
+
+.headerActions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.setStats {
+  display: flex;
+  gap: 0.75rem;
+  font-family: $font-body;
+  font-size: 0.8rem;
+}
+
+.learned { color: $glow; font-weight: 600; }
+.unlearned { color: $text-secondary; }
+
+.formCard {
+  background: $card;
+  border: 1px solid $border;
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.inlineForm {
+  display: flex;
+  flex-direction: column;
+  gap: 0.875rem;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.label {
+  font-family: $font-body;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: $text-secondary;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.input {
+  background: $bg-main;
+  border: 1px solid $border;
+  border-radius: 8px;
+  padding: 0.6rem 0.75rem;
+  color: $text-main;
+  font-family: $font-body;
+  font-size: 0.875rem;
+  outline: none;
+  transition: border-color 0.15s;
+  &:focus { border-color: $accent; }
+  &::placeholder { color: rgba(148, 163, 184, 0.4); }
+}
+
+.error {
+  background: rgba(239, 68, 68, 0.1);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  border-radius: 8px;
+  padding: 0.625rem;
+  color: #ef4444;
+  font-family: $font-body;
+  font-size: 0.85rem;
+}
+
+.formActions {
+  display: flex;
+  gap: 0.75rem;
+  justify-content: flex-end;
+}
+
+.cancelBtn {
+  padding: 0.55rem 1rem;
+  background: transparent;
+  border: 1px solid $border;
+  border-radius: 8px;
+  color: $text-secondary;
+  font-family: $font-body;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: border-color 0.15s, color 0.15s;
+  &:hover { border-color: $text-secondary; color: $text-main; }
+}
+
+.submitBtn {
+  padding: 0.55rem 1.25rem;
+  background: $accent;
+  border: none;
+  border-radius: 8px;
+  color: #fff;
+  font-family: $font-body;
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.15s;
+  &:hover:not(:disabled) { opacity: 0.9; }
+  &:disabled { opacity: 0.6; cursor: not-allowed; }
+}
+
+.loading, .empty {
+  color: $text-secondary;
+  font-family: $font-body;
+  font-size: 0.9rem;
+  padding: 3rem 0;
+  text-align: center;
+}
+
+.setsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1rem;
+}
+
+.setCard {
+  background: $card;
+  border: 1px solid $border;
+  border-radius: 12px;
+  padding: 1.5rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.875rem;
+  transition: border-color 0.15s, background 0.15s;
+  text-align: left;
+
+  &:hover {
+    border-color: $accent;
+    background: rgba(var(--accent-rgb), 0.05);
+  }
+}
+
+.setIcon {
+  font-size: 1.5rem;
+  color: $accent;
+}
+
+.setName {
+  flex: 1;
+  font-family: $font-body;
+  font-size: 0.925rem;
+  color: $text-main;
+  font-weight: 600;
+}
+
+.setArrow {
+  color: $text-secondary;
+  font-size: 0.9rem;
+}
+
+.addCardForm {
+  background: $card;
+  border: 1px solid $border;
+  border-radius: 12px;
+  padding: 1.25rem;
+  margin-bottom: 1.5rem;
+}
+
+.addCardTitle {
+  font-family: $font-header;
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: $text-main;
+  margin-bottom: 0.875rem;
+}
+
+.cardForm {
+  display: flex;
+  flex-direction: column;
+  gap: 0.625rem;
+}
+
+.cardRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr auto;
+  gap: 0.75rem;
+  align-items: flex-end;
+
+  @media (max-width: 600px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.addCardBtn {
+  height: 38px;
+  width: 38px;
+  background: $accent;
+  border: none;
+  border-radius: 8px;
+  color: #fff;
+  font-size: 1.25rem;
+  cursor: pointer;
+  transition: opacity 0.15s;
+  flex-shrink: 0;
+  &:hover:not(:disabled) { opacity: 0.9; }
+  &:disabled { opacity: 0.6; cursor: not-allowed; }
+}
+
+.cardGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 0.75rem;
+}
+
+.vocabCard {
+  background: $card;
+  border: 1px solid $border;
+  border-radius: 10px;
+  padding: 0.875rem;
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+  transition: border-color 0.15s;
+
+  &.vocabLearned {
+    opacity: 0.6;
+    border-color: rgba(var(--glow-rgb), 0.2);
+  }
+}
+
+.vocabWord {
+  flex: 1;
+  font-family: $font-body;
+  font-size: 0.875rem;
+  color: $text-main;
+  font-weight: 600;
+}
+
+.vocabArrow {
+  color: $text-secondary;
+  font-size: 0.8rem;
+}
+
+.vocabTranslation {
+  flex: 1;
+  font-family: $font-body;
+  font-size: 0.875rem;
+  color: $text-secondary;
+}
+
+.markLearnedBtn {
+  background: rgba(var(--glow-rgb), 0.1);
+  border: 1px solid rgba(var(--glow-rgb), 0.3);
+  border-radius: 6px;
+  padding: 0.2rem 0.5rem;
+  color: $glow;
+  font-size: 0.75rem;
+  cursor: pointer;
+  transition: background 0.15s;
+  flex-shrink: 0;
+  &:hover { background: rgba(var(--glow-rgb), 0.2); }
+}
+
+.learnedMark {
+  color: $glow;
+  font-size: 0.9rem;
+  flex-shrink: 0;
+}
+
+// Study mode
+.studyHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+}
+
+.studyProgress {
+  font-family: $font-body;
+  font-size: 0.875rem;
+  color: $text-secondary;
+}
+
+.studyWrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
+.flashcard {
+  width: 100%;
+  max-width: 500px;
+  height: 280px;
+  cursor: pointer;
+  perspective: 1000px;
+  position: relative;
+}
+
+.cardFront, .cardBack {
+  position: absolute;
+  inset: 0;
+  background: $card;
+  border: 1px solid $border;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  padding: 2rem;
+  backface-visibility: hidden;
+  transition: transform 0.5s ease;
+}
+
+.flashcard .cardFront { transform: rotateY(0deg); }
+.flashcard .cardBack { transform: rotateY(180deg); border-color: rgba(var(--glow-rgb), 0.3); }
+
+.flashcard.flipped .cardFront { transform: rotateY(-180deg); }
+.flashcard.flipped .cardBack { transform: rotateY(0deg); }
+
+.cardSide {
+  font-family: $font-body;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: $text-secondary;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.cardWord {
+  font-family: $font-header;
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: $text-main;
+  text-align: center;
+}
+
+.cardHint {
+  font-family: $font-body;
+  font-size: 0.75rem;
+  color: $text-secondary;
+}
+
+.studyActions {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.navCardBtn {
+  background: $card;
+  border: 1px solid $border;
+  border-radius: 8px;
+  padding: 0.625rem 1rem;
+  color: $text-main;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: border-color 0.15s;
+  &:hover { border-color: $accent; }
+}
+
+.learnedBtn {
+  padding: 0.625rem 1.5rem;
+  background: $glow;
+  border: none;
+  border-radius: 8px;
+  color: #fff;
+  font-family: $font-body;
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.15s;
+  &:hover { opacity: 0.9; }
+}
+
+.alreadyLearned {
+  font-family: $font-body;
+  font-size: 0.875rem;
+  color: $glow;
+  font-weight: 600;
+}

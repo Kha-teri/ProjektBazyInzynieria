@@ -1,0 +1,257 @@
+@use '../scss/colors.scss' as *;
+@use '../scss/fonts.scss' as *;
+
+.page {
+  max-width: 1100px;
+}
+
+.header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.greeting {
+  font-family: $font-header;
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: $text-main;
+  margin-bottom: 0.25rem;
+}
+
+.date {
+  font-family: $font-body;
+  font-size: 0.875rem;
+  color: $text-secondary;
+  text-transform: capitalize;
+}
+
+.sessionBadge {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(var(--glow-rgb), 0.12);
+  border: 1px solid rgba(var(--glow-rgb), 0.3);
+  border-radius: 20px;
+  padding: 0.4rem 0.875rem;
+  font-family: $font-body;
+  font-size: 0.8rem;
+  color: $glow;
+  font-weight: 600;
+}
+
+.sessionDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: $glow;
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
+.loading {
+  color: $text-secondary;
+  font-family: $font-body;
+  font-size: 0.9rem;
+  padding: 2rem 0;
+}
+
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.statCard {
+  background: $card;
+  border: 1px solid $border;
+  border-radius: 12px;
+  padding: 1.25rem 1rem;
+  text-align: center;
+}
+
+.statValue {
+  font-family: $font-header;
+  font-size: 1.75rem;
+  font-weight: 800;
+  margin-bottom: 0.25rem;
+}
+
+.statLabel {
+  font-family: $font-body;
+  font-size: 0.75rem;
+  color: $text-secondary;
+}
+
+.columns {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+
+  @media (max-width: 900px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.column {
+  background: $card;
+  border: 1px solid $border;
+  border-radius: 12px;
+  padding: 1.25rem;
+}
+
+.sectionHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.sectionTitle {
+  font-family: $font-header;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: $text-main;
+}
+
+.sectionLink {
+  font-family: $font-body;
+  font-size: 0.75rem;
+  color: $accent;
+  text-decoration: none;
+
+  &:hover { text-decoration: underline; }
+}
+
+.empty {
+  font-family: $font-body;
+  font-size: 0.875rem;
+  color: $text-secondary;
+  text-align: center;
+  padding: 1.5rem 0;
+}
+
+.scheduleList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.625rem;
+}
+
+.scheduleCard {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.625rem;
+  background: rgba(var(--card-rgb), 0.5);
+  border-radius: 8px;
+  border: 1px solid $border;
+}
+
+.scheduleColor {
+  width: 4px;
+  height: 36px;
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+
+.scheduleInfo {}
+
+.scheduleName {
+  font-family: $font-body;
+  font-size: 0.875rem;
+  color: $text-main;
+  font-weight: 600;
+}
+
+.scheduleTime {
+  font-family: $font-body;
+  font-size: 0.75rem;
+  color: $text-secondary;
+  margin-top: 0.15rem;
+}
+
+.taskList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.taskRow {
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+  padding: 0.375rem 0;
+}
+
+.taskStatus {
+  font-size: 0.85rem;
+  width: 16px;
+  text-align: center;
+  flex-shrink: 0;
+
+  &.todo { color: $text-secondary; }
+  &.in_progress { color: $accent; }
+  &.done { color: $glow; }
+}
+
+.taskTitle {
+  flex: 1;
+  font-family: $font-body;
+  font-size: 0.85rem;
+  color: $text-main;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  &.done {
+    color: $text-secondary;
+    text-decoration: line-through;
+  }
+}
+
+.taskDue {
+  font-family: $font-body;
+  font-size: 0.73rem;
+  color: $text-secondary;
+  flex-shrink: 0;
+}
+
+.sessionList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.sessionRow {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.375rem 0;
+  font-family: $font-body;
+  font-size: 0.85rem;
+}
+
+.sessionTime {
+  color: $text-secondary;
+  font-size: 0.8rem;
+  flex: 1;
+}
+
+.sessionDuration {
+  color: $text-main;
+  font-weight: 600;
+}
+
+.sessionPoints {
+  color: $glow;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
