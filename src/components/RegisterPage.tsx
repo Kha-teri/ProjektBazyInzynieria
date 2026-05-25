@@ -5,6 +5,7 @@ import styles from './LoginPage.module.scss';
 
 export default function RegisterPage() {
   const [email, setEmail] = useState('');
+  const [nickname, setNickname] = useState('');
   const [password, setPassword] = useState('');
   const [confirm, setConfirm] = useState('');
   const [question, setQuestion] = useState('');
@@ -17,6 +18,7 @@ export default function RegisterPage() {
     e.preventDefault();
     setError('');
 
+    if (!nickname.trim()) { setError('Podaj nick.'); return; }
     if (!email.trim()) { setError('Podaj adres email.'); return; }
     if (!password) { setError('Podaj hasło.'); return; }
     if (password.length < 6) { setError('Hasło musi mieć co najmniej 6 znaków.'); return; }
@@ -24,7 +26,7 @@ export default function RegisterPage() {
 
     setLoading(true);
     try {
-      await apiRegister(email.trim(), password, question || undefined, answer || undefined);
+      await apiRegister(email.trim(), password, nickname.trim(), question || undefined, answer || undefined);
       navigate('/login');
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Błąd rejestracji.');
@@ -43,6 +45,18 @@ export default function RegisterPage() {
         <p className={styles.subtitle}>Zacznij organizować swoją naukę już dziś.</p>
 
         <form className={styles.form} onSubmit={handleSubmit} noValidate>
+          <div className={styles.field}>
+            <label className={styles.label}>Nick</label>
+            <input
+              className={styles.input}
+              type="text"
+              placeholder="Twój nick"
+              value={nickname}
+              onChange={e => setNickname(e.target.value)}
+              autoComplete="nickname"
+            />
+          </div>
+
           <div className={styles.field}>
             <label className={styles.label}>Email</label>
             <input

@@ -4,6 +4,7 @@ import { getToken, setToken, removeToken } from '../api/client';
 interface AuthUser {
   id: number;
   email: string;
+  nickname: string;
   level: number;
   points: number;
 }

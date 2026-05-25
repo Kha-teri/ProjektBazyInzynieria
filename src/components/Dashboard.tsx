@@ -65,7 +65,7 @@ export default function Dashboard() {
     <div className={styles.page}>
       <div className={styles.header}>
         <div>
-          <h1 className={styles.greeting}>{greeting}, {user?.email?.split('@')[0]}!</h1>
+          <h1 className={styles.greeting}>{greeting}, {user?.nickname ?? user?.email?.split('@')[0]}!</h1>
           <p className={styles.date}>{new Date().toLocaleDateString('pl-PL', { weekday: 'long', day: 'numeric', month: 'long' })}</p>
         </div>
         {activeSession && (
